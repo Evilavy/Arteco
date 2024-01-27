@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Ubuntu';
+}
+
+body {
+    height: 500vh;
+}
+
+nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    align-items: center;
+    padding: 20px 30px;
+    z-index: 1;
+}
+
+nav a {
+    color: white;
+    transition: .2s;
+}
+
+nav a:hover {
+    color: #13A106;
+}
+
+nav a#logo:hover {
+    color: #fff;
+}
+
+nav a#CTA {
+    background: linear-gradient(180deg, #13A106 0%, #0C6504 100%);
+    padding: 10px 30px;
+    border-radius: 20px;
+}
+
+nav a#logo {
+    font-weight: bold;
+    font-size: larger;
+    text-decoration: underline;
+    text-decoration-color: #13A106;
+    text-underline-offset: 3px;
+}
+
+nav .left,
+nav .right {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 30px;
+}
+
+nav .right {
+    align-items: center !important;
+}
+
+nav .right a img {
+    height: 20px;
+}
+
+nav.top-nav {
+    position: fixed;
+    transition: background-color 0.3s;
+}
+
+nav.top-nav.scrolled {
+    background-color: white;
+}
+
+nav.top-nav.scrolled a {
+    color: black;
+    transition: color 0.3s;
+}
+
+nav.top-nav.scrolled a#CTA {
+    color: white;
+    transition: color 0.3s;
+}
+
+header .background {
+    position: relative;
+}
+
+header .background h1 {
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: normal;
+    background: linear-gradient(91deg, #FFF -1.6%, rgba(255, 255, 255, 0.00) 238.99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header .background h2 {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: normal;
+    background: linear-gradient(91deg, #FFF -1.6%, rgba(255, 255, 255, 0.00) 238.99%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.background {
+    height: 100vh;
+    width: 100%;
+    background-image: url('/assets/BG-Index.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 0 800px 0;
+    box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.background .black-layer {
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 800px 0;
+    background-color: rgba(0, 0, 0, 0.687);
+}
+
+section.first {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 100px 0;
+    gap: 50px;
+}
+
+section.first h3 {
+    width: 70vw;
+    text-align: center;
+    background-color: #13A106;
+    color: #fff;
+    padding: 10px 0;
+    border-radius: 20px;
+    font-size: 25px;
+}
+
+section.first p {
+    width: 90vw;
+    text-align: center;
+}
+
+section.first svg {
+    margin-top: 70px;
+    width: 53px;
+    height: 53px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 1150px) {
+    header .background h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 1020px) {
+    header .background h1 {
+        bottom: 150px;
+
+    }
+
+    header .background h2 {
+        bottom: 100px;
+
+    }
+
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, #0000006b, #0000006b);
+
+}
+
+.hero-slider {
+    width: 80%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.carousel-cell {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px 0px 800px 0px;
+}
+
+.carousel-cell .inner {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: center;
+}
+
+.carousel-cell .subtitle {
+    font-size: 1rem;
+    line-height: 1.2em;
+    font-weight: 200;
+    letter-spacing: 3px;
+    color: #fff;
+    margin-bottom: 50px;
+    padding: 0 70px;
+}
+
+.carousel-cell .title {
+    font-size: 3rem;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+
+.carousel-cell .btn {
+    border: 1px solid #fff;
+    padding: 14px 18px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.carousel-cell .btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.flickity-prev-next-button {
+    width: 80px;
+    height: 80px;
+    background: transparent;
+}
+
+.flickity-prev-next-button:hover {
+    background: transparent;
+}
+
+.flickity-prev-next-button .arrow {
+    fill: white;
+}
+
+.flickity-page-dots {
+    bottom: 30px;
+    z-index: 1000;
+    top: 0;
+    height: fit-content;
+}
+
+.flickity-page-dots .dot {
+    width: 30px !important;
+    height: 4px !important;
+    opacity: 1;
+    background: rgb(0, 0, 0) !important;
+    border: 0;
+    z-index: 0;
+    top: 0;
+    height: fit-content;
+    border-radius: 0 !important;
+}
+
+.flickity-page-dots .dot.is-selected {
+    background: #13A106 !important;
+    border: 0;
+}
+
+.flickity-page-dots {
+    top: 470px;
+    height: fit-content;
+}
+
+section.second {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #F3F3F3;
+    text-align: center;
+    font-family: Ubuntu;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
