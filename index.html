@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -12,7 +11,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.pkgd.min.js"></script>
+
+    <link href="styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="styles/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="styles/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
     <title>Accueil</title>
   </head>
   <body>
@@ -90,11 +98,11 @@
           <div class="overlay"></div>
           <div class="inner">
             <h2 class="title">Pompe à chaleur</h2>
-            <h3 class="subtitle">
+            <p class="subtitle">
               Redonnez une seconde jeunesse à vos tuiles et ardoises grâce aux
               produits exclusifs de Technitoit, le spécialiste de la toiture en
               France.
-            </h3>
+            </p>
             <a href="https://flickity.metafizzy.co/" target="_blank" class="btn"
               >Estimer</a
             >
@@ -109,11 +117,11 @@
           <div class="overlay"></div>
           <div class="inner">
             <h2 class="title">Toiture</h2>
-            <h3 class="subtitle">
+            <p class="subtitle">
               Redonnez une seconde jeunesse à vos tuiles et ardoises grâce aux
               produits exclusifs de Technitoit, le spécialiste de la toiture en
               France.
-            </h3>
+            </p>
             <a href="https://flickity.metafizzy.co/" target="_blank" class="btn"
               >Estimer</a
             >
@@ -128,52 +136,292 @@
           <div class="overlay"></div>
           <div class="inner">
             <h2 class="title">Flickity Parallax</h2>
-            <h3 class="subtitle">Slide 3</h3>
+            <p class="subtitle">Slide 3</p>
             <a href="https://flickity.metafizzy.co/" target="_blank" class="btn"
-            >Estimer</a
-          >
+              >Estimer</a
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-        <h1>Découvrir nos réalisations</h1>
+    <section class="third">
+      <h3>Découvrir nos réalisations</h3>
+
+      <div class="blog-slider">
+        <div class="blog-slider__wrp swiper-wrapper">
+          <div class="blog-slider__item swiper-slide">
+            <div class="blog-slider__img">
+              <img
+                src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759872/kuldar-kalvik-799168-unsplash.webp"
+                alt=""
+              />
+            </div>
+            <div class="blog-slider__content">
+              <span class="blog-slider__code">26 December 2019</span>
+              <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+              <div class="blog-slider__text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Recusandae voluptate repellendus magni illo ea animi?
+              </div>
+              <a href="#" class="blog-slider__button">READ MORE</a>
+            </div>
+          </div>
+          <div class="blog-slider__item swiper-slide">
+            <div class="blog-slider__img">
+              <img
+                src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/jason-leung-798979-unsplash.webp"
+                alt=""
+              />
+            </div>
+            <div class="blog-slider__content">
+              <span class="blog-slider__code">26 December 2019</span>
+              <div class="blog-slider__title">Lorem Ipsum Dolor2</div>
+              <div class="blog-slider__text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Recusandae voluptate repellendus magni illo ea animi?
+              </div>
+              <a href="#" class="blog-slider__button">READ MORE</a>
+            </div>
+          </div>
+
+          <div class="blog-slider__item swiper-slide">
+            <div class="blog-slider__img">
+              <img
+                src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/alessandro-capuzzi-799180-unsplash.webp"
+                alt=""
+              />
+            </div>
+            <div class="blog-slider__content">
+              <span class="blog-slider__code">26 December 2019</span>
+              <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+              <div class="blog-slider__text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Recusandae voluptate repellendus magni illo ea animi?
+              </div>
+              <a href="#" class="blog-slider__button">READ MORE</a>
+            </div>
+          </div>
+        </div>
+        <div class="blog-slider__pagination"></div>
+      </div>
     </section>
 
+    <section class="fourth">
+      <h3>Notre équipe</h3>
+      <div class="contTeam">
+        <div class="card">
+          <p id="name">Jean Dupont</p>
+          <p id="desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
+            alias veritatis? Necessitatibus perspiciatis ea.
+          </p>
+          <div class="overlaCard"></div>
+        </div>
+        <div class="card">
+          <p id="name">Jean Dupont</p>
+          <p id="desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
+            alias veritatis? Necessitatibus perspiciatis ea.
+          </p>
+          <div class="overlayCard"></div>
+        </div>
+        <div class="card">
+          <p id="name">Jean Dupont</p>
+          <p id="desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
+            alias veritatis? Necessitatibus perspiciatis ea.
+          </p>
+          <div class="overlayCard"></div>
+        </div>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+          quibusdam ex error labore repellat voluptatum praesentium nostrum
+          ratione, molestias esse voluptatibus animi a laboriosam, quisquam
+          perspiciatis enim eaque beatae in? Blanditiis dignissimos at maiores
+          cum! Odit natus consequuntur veritatis voluptatem, assumenda placeat
+          quae amet ab veniam porro rerum vel dolor quia unde fugit nesciunt
+          nisi quos omnis itaque explicabo? Laudantium. Atque, saepe! Officiis
+          doloremque quae omnis. Eos aspernatur illum, laboriosam quod officiis
+          facere ad laborum maiores sequi, error fuga sunt, quisquam dolorem
+          quibusdam. Assumenda in, aspernatur voluptatem quaerat ducimus ad?
+          Modi laboriosam iusto nesciunt eum laborum, fugit eius excepturi nam
+          ab. Vel impedit minima odit ipsum sit cum sapiente, totam officia
+          corrupti ipsam nostrum recusandae accusantium aliquid aliquam eligendi
+          fugiat?
+        </p>
+      </div>
+    </section>
+
+    <section class="fifth">
+      <h3>Le blog d’Arteco</h3>
+      <div class="card_wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="owl-carousel card_carousel">
+                <div class="card_box">
+                  <div class="img_box">
+                    <img class="img-fluid" src="img/team1.png" alt="" />
+                  </div>
+                  <div class="text_box">
+                    <h4>Arun Chandra</h4>
+                    <p>Senior CEO</p>
+                  </div>
+                </div>
+                <div class="card_box">
+                  <div class="img_box">
+                    <img class="img-fluid" src="img/team2.png" alt="" />
+                  </div>
+                  <div class="text_box">
+                    <h4>Ishita Chandra</h4>
+                    <p>Senior CEO</p>
+                  </div>
+                </div>
+                <div class="card_box">
+                  <div class="img_box">
+                    <img class="img-fluid" src="img/team3.png" alt="" />
+                  </div>
+                  <div class="text_box">
+                    <h4>halim Molla</h4>
+                    <p>Senior CEO</p>
+                  </div>
+                </div>
+                <div class="card_box">
+                  <div class="img_box">
+                    <img class="img-fluid" src="img/team4.png" alt="" />
+                  </div>
+                  <div class="text_box">
+                    <h4>Tiya Moni</h4>
+                    <p>Senior CEO</p>
+                  </div>
+                </div>
+                <div class="card_box">
+                  <div class="img_box">
+                    <img class="img-fluid" src="img/team1.png" alt="" />
+                  </div>
+                  <div class="text_box">
+                    <h4>Arun Chandra</h4>
+                    <p>Senior CEO</p>
+                  </div>
+                </div>
+                <div class="card_box">
+                  <div class="img_box">
+                    <img class="img-fluid" src="img/team2.png" alt="" />
+                  </div>
+                  <div class="text_box">
+                    <h4>Arun Chandra</h4>
+                    <p>Senior CEO</p>
+                  </div>
+                </div>
+                <div class="card_box">
+                  <div class="img_box">
+                    <img class="img-fluid" src="img/team3.png" alt="" />
+                  </div>
+                  <div class="text_box">
+                    <h4>Arun Chandra</h4>
+                    <p>Senior CEO</p>
+                  </div>
+                </div>
+                <div class="card_box">
+                  <div class="img_box">
+                    <img class="img-fluid" src="img/team4.png" alt="" />
+                  </div>
+                  <div class="text_box">
+                    <h4>Arun Chandra</h4>
+                    <p>Senior CEO</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Include Swiper's JS just before initializing Swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script/jquery-3.4.1.min.js"></script>
+    <script src="script/bootstrap.min.js"></script>
+    <script src="script/owl.carousel.min.js"></script>
+
     <script>
+      // Handling the scroll effect for the navigation bar
       window.addEventListener("scroll", function () {
-        var nav = document.querySelector(".top-nav"); // Sélectionne la barre de navigation
+        var nav = document.querySelector(".top-nav");
         if (window.scrollY > 0) {
-          // Vérifie si la page a été défilée
-          nav.classList.add("scrolled"); // Ajoute la classe 'scrolled' à la barre de navigation
+          nav.classList.add("scrolled");
         } else {
-          nav.classList.remove("scrolled"); // Retire la classe 'scrolled' si l'utilisateur est en haut de la page
+          nav.classList.remove("scrolled");
         }
       });
 
+      // Initializing Flickity carousel
       document.addEventListener("DOMContentLoaded", function () {
-        var options = {
+        var carousel = document.querySelector(".hero-slider");
+        var flkty = new Flickity(carousel, {
           accessibility: true,
           prevNextButtons: true,
           pageDots: true,
           setGallerySize: false,
           arrowShape: { x0: 10, x1: 60, y1: 50, x2: 60, y2: 45, x3: 15 },
-        };
+        });
 
-        var carousel = document.querySelector(".hero-slider");
-        var flkty = new Flickity(carousel, options);
-
-        var slides = document.getElementsByClassName("carousel-cell");
-
-        flkty.on("scroll", function () {
+        flkty.on("scroll", function (progress) {
           flkty.slides.forEach(function (slide, i) {
-            var image = slides[i];
+            var image = carousel.querySelectorAll(".carousel-cell")[i];
             var x = ((slide.target + flkty.x) * -1) / 3;
-            image.style.backgroundPosition = x + "px";
+            image.style.backgroundPosition = x + "px center";
           });
         });
       });
+
+      // Initializing Swiper
+      var swiper = new Swiper(".blog-slider", {
+        spaceBetween: 30,
+        effect: "fade",
+        loop: true,
+        mousewheel: {
+          invert: false,
+        },
+        pagination: {
+          el: ".blog-slider__pagination",
+          clickable: true,
+        },
+      });
+
+      //card slider start
+      function card_carouselInit() {
+        $(".owl-carousel.card_carousel").owlCarousel({
+          dots: false,
+          loop: true,
+          margin: 20,
+          stagePadding: 2,
+          autoplay: true,
+          autoplayTimeout: 1500,
+          nav: true,
+          navText: [
+            "<i class='far fa-arrow-alt-circle-left'></i>",
+            "<i class='far fa-arrow-alt-circle-right'></i>",
+          ],
+          autoplayHoverPause: true,
+          responsive: {
+            0: {
+              items: 1,
+            },
+            768: {
+              items: 2,
+            },
+            992: {
+              items: 4,
+            },
+          },
+        });
+      }
+      card_carouselInit();
     </script>
   </body>
 </html>
