@@ -70,10 +70,27 @@ nav.top-nav {
     transition: background-color 0.3s;
 }
 
-nav.top-nav.scrolled {
-    background-color: white;
-    border-bottom: 0.5px solid #494949;
+/* Pour les écrans plus larges que 768px, appliquez le fond blanc au défilement */
+@media (min-width: 769px) {
+    .top-nav.scrolled {
+        background-color: white;
+        /* Applique un fond blanc */
+        border-bottom: 0.5px solid #494949;
+        /* Ajoute une bordure en bas */
+    }
 }
+
+/* Sur les écrans de 768px de large ou moins, aucun style spécifique n'est nécessaire pour .scrolled */
+/* Vous pouvez soit ne rien mettre, soit réinitialiser des styles si nécessaire */
+@media (max-width: 768px) {
+    .top-nav.scrolled {
+        background-color: transparent;
+        /* S'assure que le fond est transparent */
+        border-bottom: none;
+        /* Supprime la bordure en bas si elle était définie ailleurs */
+    }
+}
+
 
 nav.top-nav.scrolled a {
     color: black;
@@ -83,6 +100,93 @@ nav.top-nav.scrolled a {
 nav.top-nav.scrolled a#CTA {
     color: white;
     transition: color 0.3s;
+}
+
+/* Ajouté pour garantir que le menu ne couvre pas le bouton hamburger */
+.top-nav .hamburger {
+    z-index: 10001;
+    /* Plus élevé que le menu pour rester cliquable */
+    color: #13A106;
+}
+
+.menu.active {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 60px;
+    /* Ajustez en fonction de la hauteur de votre nav */
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    /* Ou toute autre couleur de fond */
+    flex-direction: column;
+    align-items: center;
+    /* Centre les éléments du menu */
+    padding: 20px 0;
+    /* Espace autour des éléments du menu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optionnel: Ajoute une ombre */
+    width: 90vw;
+    height: 70vh;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.menu.active .left {
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu.active .right {
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Style de base pour le bouton de menu hamburger */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    /* Ou une autre couleur adaptée à votre design */
+    cursor: pointer;
+}
+
+/* Masquer les éléments de menu par défaut */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Styles pour les écrans mobiles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        /* Afficher le bouton de menu hamburger */
+    }
+
+    .menu {
+        display: none;
+        /* Masquer les liens de navigation par défaut */
+        flex-direction: column;
+        /* Pour afficher les liens verticalement */
+    }
+
+    nav a {
+        color: black;
+        /* Couleur du texte pour le mode mobile */
+    }
+
+    /* Affichage du menu lorsque le menu hamburger est activé */
+    .menu.active {
+        display: flex;
+    }
 }
 
 header .background {
@@ -138,18 +242,8 @@ section.first {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 100px 0;
     gap: 50px;
-}
-
-section.first h3 {
-    width: 70vw;
-    text-align: center;
-    background-color: #13A106;
-    color: #fff;
-    padding: 10px 0;
-    border-radius: 20px;
-    font-size: 25px;
+    height: 80vh !important;
 }
 
 section.first p,
@@ -195,9 +289,10 @@ section.first svg {
 }
 
 .hero-slider {
-    width: 80%;
+    width: 90%;
     height: 500px;
     overflow: hidden;
+    border-radius: 20px 20px 20px 20px;
 }
 
 .carousel-cell {
@@ -298,9 +393,10 @@ section.second {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-h3 {
+h3#title {
     color: #F3F3F3;
     text-align: center;
     font-family: Ubuntu;
@@ -311,9 +407,23 @@ h3 {
     background: linear-gradient(90deg, #000 -30.03%, #13A106 107.79%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin-bottom: 90px;
 }
 
 
+section.first h3#first {
+    width: 70vw !important;
+    text-align: center !important;
+    background-color: #13A106 !important;
+    color: #fff !important;
+    padding: 10px 0 !important;
+    border-radius: 20px !important;
+    font-size: 25px !important;
+}
+
+section.third {
+    height: 80vh !important;
+}
 
 
 
@@ -844,6 +954,10 @@ h3 {
     }
 }
 
+section.fourth {
+    height: auto !important;
+}
+
 section.fourth .contTeam {
     width: 100vw;
     display: flex;
@@ -854,8 +968,8 @@ section.fourth .contTeam {
 }
 
 section.fourth .contTeam .card {
-    width: 300px;
-    height: 400px;
+    width: 250px;
+    height: 350px;
     border-radius: 20px;
     background: url('/assets/worker.avif'), lightgray 50% / cover no-repeat;
     display: flex;
@@ -992,4 +1106,8 @@ section.fourth .contTeam .card #desc {
     flex-shrink: 0;
     margin: 0 5px;
     font-size: 18px;
+}
+
+section {
+    height: 100vh;
 }

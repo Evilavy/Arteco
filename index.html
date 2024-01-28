@@ -25,20 +25,24 @@
   </head>
   <body>
     <nav class="top-nav">
-      <div class="left">
-        <a id="logo" href="">Arteco</a>
-        <a href="">Pompe à chaleur</a>
-        <a href="">Ventilation</a>
-        <a href="">Façade</a>
-        <a href="">Isolation</a>
-        <a href="">Réalisations</a>
-        <a href="">Nos partenaires</a>
-      </div>
-      <div class="right">
-        <a href=""><img src="/assets/logo facebook.png" alt="" /></a>
-        <a id="CTA" href="">Devis gratuit</a>
+      <button class="hamburger" aria-label="Menu">☰</button>
+      <div class="menu">
+        <div class="left">
+          <a id="logo" href="#">Arteco</a>
+          <a href="#">Pompe à chaleur</a>
+          <a href="#">Ventilation</a>
+          <a href="#">Façade</a>
+          <a href="#">Isolation</a>
+          <a href="#">Réalisations</a>
+          <a href="#">Nos partenaires</a>
+        </div>
+        <div class="right">
+          <a href="#"><img src="/assets/logo facebook.png" alt="" /></a>
+          <a id="CTA" href="#">Devis gratuit</a>
+        </div>
       </div>
     </nav>
+
     <header>
       <div class="background">
         <div class="black-layer"></div>
@@ -52,7 +56,7 @@
     </header>
 
     <section class="first">
-      <h3>Construisons ensemble !</h3>
+      <h3 id="first">Construisons ensemble !</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
         quibusdam ex error labore repellat voluptatum praesentium nostrum
@@ -63,10 +67,7 @@
         quos omnis itaque explicabo? Laudantium. Atque, saepe! Officiis
         doloremque quae omnis. Eos aspernatur illum, laboriosam quod officiis
         facere ad laborum maiores sequi, error fuga sunt, quisquam dolorem
-        quibusdam. Assumenda in, aspernatur voluptatem quaerat ducimus ad? Modi
-        laboriosam iusto nesciunt eum laborum, fugit eius excepturi nam ab. Vel
-        impedit minima odit ipsum sit cum sapiente, totam officia corrupti ipsam
-        nostrum recusandae accusantium aliquid aliquam eligendi fugiat?
+        quibusdam. Assumenda in.
       </p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -88,6 +89,7 @@
     </section>
 
     <section class="second">
+      <h3 id="title">Nos préstations</h3>
       <div class="hero-slider" data-carousel>
         <div
           class="carousel-cell"
@@ -146,7 +148,7 @@
     </section>
 
     <section class="third">
-      <h3>Découvrir nos réalisations</h3>
+      <h3 id="title">Découvrir nos réalisations</h3>
 
       <div class="blog-slider">
         <div class="blog-slider__wrp swiper-wrapper">
@@ -208,7 +210,7 @@
     </section>
 
     <section class="fourth">
-      <h3>Notre équipe</h3>
+      <h3 id="title">Notre équipe</h3>
       <div class="contTeam">
         <div class="card">
           <p id="name">Jean Dupont</p>
@@ -242,20 +244,13 @@
           perspiciatis enim eaque beatae in? Blanditiis dignissimos at maiores
           cum! Odit natus consequuntur veritatis voluptatem, assumenda placeat
           quae amet ab veniam porro rerum vel dolor quia unde fugit nesciunt
-          nisi quos omnis itaque explicabo? Laudantium. Atque, saepe! Officiis
-          doloremque quae omnis. Eos aspernatur illum, laboriosam quod officiis
-          facere ad laborum maiores sequi, error fuga sunt, quisquam dolorem
-          quibusdam. Assumenda in, aspernatur voluptatem quaerat ducimus ad?
-          Modi laboriosam iusto nesciunt eum laborum, fugit eius excepturi nam
-          ab. Vel impedit minima odit ipsum sit cum sapiente, totam officia
-          corrupti ipsam nostrum recusandae accusantium aliquid aliquam eligendi
-          fugiat?
+          nisi quos omnis itaque explicabo?
         </p>
       </div>
     </section>
 
     <section class="fifth">
-      <h3>Le blog d’Arteco</h3>
+      <h3 id="title">Le blog d’Arteco</h3>
       <div class="card_wrapper">
         <div class="container">
           <div class="row">
@@ -340,8 +335,6 @@
       </div>
     </section>
 
-
-
     <!-- Include Swiper's JS just before initializing Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script/jquery-3.4.1.min.js"></script>
@@ -359,25 +352,41 @@
         }
       });
 
-      // Initializing Flickity carousel
-      document.addEventListener("DOMContentLoaded", function () {
-        var carousel = document.querySelector(".hero-slider");
-        var flkty = new Flickity(carousel, {
-          accessibility: true,
-          prevNextButtons: true,
-          pageDots: true,
-          setGallerySize: false,
-          arrowShape: { x0: 10, x1: 60, y1: 50, x2: 60, y2: 45, x3: 15 },
-        });
+      window.onload = function () {
+        console.log("Le script est chargé et exécuté.");
 
-        flkty.on("scroll", function (progress) {
-          flkty.slides.forEach(function (slide, i) {
-            var image = carousel.querySelectorAll(".carousel-cell")[i];
-            var x = ((slide.target + flkty.x) * -1) / 3;
-            image.style.backgroundPosition = x + "px center";
+        // Initialisation de Flickity pour le carrousel
+        var carousel = document.querySelector(".hero-slider");
+        if (carousel) {
+          var flkty = new Flickity(carousel, {
+            accessibility: true,
+            prevNextButtons: true,
+            pageDots: true,
+            setGallerySize: false,
+            arrowShape: { x0: 10, x1: 60, y1: 50, x2: 60, y2: 45, x3: 15 },
           });
-        });
-      });
+
+          flkty.on("scroll", function (progress) {
+            flkty.slides.forEach(function (slide, i) {
+              var image = carousel.querySelectorAll(".carousel-cell")[i];
+              var x = ((slide.target + flkty.x) * -1) / 3;
+              image.style.backgroundPosition = x + "px center";
+            });
+          });
+        }
+
+        const hamburger = document.querySelector(".hamburger");
+        const menu = document.querySelector(".menu");
+
+        if (hamburger && menu) {
+          hamburger.addEventListener("click", function () {
+            console.log("Hamburger cliqué");
+            menu.classList.toggle("active");
+          });
+        } else {
+          console.error("Éléments .hamburger ou .menu introuvables");
+        }
+      };
 
       // Initializing Swiper
       var swiper = new Swiper(".blog-slider", {
@@ -401,7 +410,7 @@
           margin: 20,
           stagePadding: 2,
           autoplay: true,
-          autoplayTimeout: 1500,
+          autoplayTimeout: 2500,
           nav: true,
           navText: [
             "<i class='far fa-arrow-alt-circle-left'></i>",
@@ -416,7 +425,7 @@
               items: 2,
             },
             992: {
-              items: 4,
+              items: 3,
             },
           },
         });
