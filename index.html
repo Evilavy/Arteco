@@ -335,6 +335,8 @@
       </div>
     </section>
 
+    <div class="overlayMenu"></div>
+
     <!-- Include Swiper's JS just before initializing Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script/jquery-3.4.1.min.js"></script>
@@ -377,16 +379,22 @@
 
         const hamburger = document.querySelector(".hamburger");
         const menu = document.querySelector(".menu");
+        const overlay = document.querySelector(".overlayMenu");
 
-        if (hamburger && menu) {
-          hamburger.addEventListener("click", function () {
-            console.log("Hamburger cliqué");
-            menu.classList.toggle("active");
-          });
-        } else {
-          console.error("Éléments .hamburger ou .menu introuvables");
-        }
+        hamburger.addEventListener("click", function () {
+          menu.classList.toggle("active");
+          // Basculez l'affichage de l'overlay en fonction de l'état actif du menu
+          if (menu.classList.contains("active")) {
+            overlay.style.display = "block";
+          } else {
+            overlay.style.display = "none";
+          }
+        });
       };
+
+      document.querySelector(".hamburger").addEventListener("click", () => {
+        document.querySelector(".overlayMenu").style.display = "block";
+      });
 
       // Initializing Swiper
       var swiper = new Swiper(".blog-slider", {

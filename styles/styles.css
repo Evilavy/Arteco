@@ -70,6 +70,24 @@ nav.top-nav {
     transition: background-color 0.3s;
 }
 
+@media (max-width: 1070px) {
+    nav a {
+        font-size: smaller;
+    }
+}
+
+@media (max-width: 950px) {
+
+    nav .left,
+    nav .right {
+        gap: 25px;
+    }
+
+    nav a#CTA {
+        padding: 5px 10px;
+    }
+}
+
 /* Pour les écrans plus larges que 768px, appliquez le fond blanc au défilement */
 @media (min-width: 769px) {
     .top-nav.scrolled {
@@ -182,6 +200,12 @@ nav.top-nav.scrolled a#CTA {
         color: black;
         /* Couleur du texte pour le mode mobile */
     }
+
+    nav a#CTA {
+        color: white;
+        /* Couleur du texte pour le mode mobile */
+    }
+
 
     /* Affichage du menu lorsque le menu hamburger est activé */
     .menu.active {
@@ -1110,4 +1134,17 @@ section.fourth .contTeam .card #desc {
 
 section {
     height: 100vh;
+}
+
+.overlayMenu{
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    display: none;
 }
