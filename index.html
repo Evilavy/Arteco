@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -25,7 +25,60 @@
   </head>
   <body>
     <nav class="top-nav">
-      <button class="hamburger" aria-label="Menu">☰</button>
+      <button class="hamburger" aria-label="Menu">
+        <svg
+          class="hb"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 10 10"
+          stroke="#eee"
+          stroke-width=".6"
+          fill="rgba(0,0,0,0)"
+          stroke-linecap="round"
+          style="cursor: pointer"
+        >
+          <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
+            <animate
+              dur="0.2s"
+              attributeName="d"
+              values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7"
+              fill="freeze"
+              begin="start.begin"
+            />
+            <animate
+              dur="0.2s"
+              attributeName="d"
+              values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7"
+              fill="freeze"
+              begin="reverse.begin"
+            />
+          </path>
+          <rect width="10" height="10" stroke="none">
+            <animate
+              dur="2s"
+              id="reverse"
+              attributeName="width"
+              begin="click"
+            />
+          </rect>
+          <rect width="10" height="10" stroke="none">
+            <animate
+              dur="0.001s"
+              id="start"
+              attributeName="width"
+              values="10;0"
+              fill="freeze"
+              begin="click"
+            />
+            <animate
+              dur="0.001s"
+              attributeName="width"
+              values="0;10"
+              fill="freeze"
+              begin="reverse.begin"
+            />
+          </rect>
+        </svg>
+      </button>
       <div class="menu">
         <div class="left">
           <a id="logo" href="#">Arteco</a>
@@ -46,10 +99,10 @@
     <header>
       <div class="background">
         <div class="black-layer"></div>
-        <h1 class="animate__animated animate__fadeInLeft">
+        <h1 class="title animate__animated animate__fadeInLeft">
           Économisez plus, isolez mieux.
         </h1>
-        <h2 class="animate__animated animate__fadeInLeft animate__delay-1s">
+        <h2 class="subTitle animate__animated animate__fadeInLeft animate__delay-1s">
           L'isolation par excellence.
         </h2>
       </div>
@@ -94,7 +147,7 @@
         <div
           class="carousel-cell"
           style="
-            background-image: url(https://68.media.tumblr.com/57836ee52bc9355ad7c5fed5abf91ccc/tumblr_oiboo6MaRS1slhhf0o1_1280.jpg);
+            background-image: url(/assets/pompeChaleur.jpeg);
           "
         >
           <div class="overlay"></div>
@@ -113,7 +166,7 @@
         <div
           class="carousel-cell"
           style="
-            background-image: url(https://68.media.tumblr.com/57836ee52bc9355ad7c5fed5abf91ccc/tumblr_oiboo6MaRS1slhhf0o1_1280.jpg);
+            background-image: url(/assets/toiture.png);
           "
         >
           <div class="overlay"></div>
@@ -344,14 +397,10 @@
     <script src="script/owl.carousel.min.js"></script>
 
     <script>
-      // Handling the scroll effect for the navigation bar
+      // Gestion de l'effet de défilement pour la barre de navigation
       window.addEventListener("scroll", function () {
         var nav = document.querySelector(".top-nav");
-        if (window.scrollY > 0) {
-          nav.classList.add("scrolled");
-        } else {
-          nav.classList.remove("scrolled");
-        }
+        nav.classList.toggle("scrolled", window.scrollY > 0);
       });
 
       window.onload = function () {
@@ -377,68 +426,63 @@
           });
         }
 
+        // Gestion du bouton hamburger et de l'affichage du menu
         const hamburger = document.querySelector(".hamburger");
         const menu = document.querySelector(".menu");
         const overlay = document.querySelector(".overlayMenu");
 
         hamburger.addEventListener("click", function () {
+          this.classList.toggle("active");
           menu.classList.toggle("active");
-          // Basculez l'affichage de l'overlay en fonction de l'état actif du menu
-          if (menu.classList.contains("active")) {
-            overlay.style.display = "block";
-          } else {
-            overlay.style.display = "none";
-          }
+          overlay.style.display = menu.classList.contains("active")
+            ? "block"
+            : "none";
         });
-      };
 
-      document.querySelector(".hamburger").addEventListener("click", () => {
-        document.querySelector(".overlayMenu").style.display = "block";
-      });
-
-      // Initializing Swiper
-      var swiper = new Swiper(".blog-slider", {
-        spaceBetween: 30,
-        effect: "fade",
-        loop: true,
-        mousewheel: {
-          invert: false,
-        },
-        pagination: {
-          el: ".blog-slider__pagination",
-          clickable: true,
-        },
-      });
-
-      //card slider start
-      function card_carouselInit() {
-        $(".owl-carousel.card_carousel").owlCarousel({
-          dots: false,
+        // Initialisation de Swiper pour le slider du blog
+        var swiper = new Swiper(".blog-slider", {
+          spaceBetween: 30,
+          effect: "fade",
           loop: true,
-          margin: 20,
-          stagePadding: 2,
-          autoplay: true,
-          autoplayTimeout: 2500,
-          nav: true,
-          navText: [
-            "<i class='far fa-arrow-alt-circle-left'></i>",
-            "<i class='far fa-arrow-alt-circle-right'></i>",
-          ],
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 1,
-            },
-            768: {
-              items: 2,
-            },
-            992: {
-              items: 3,
-            },
+          mousewheel: {
+            invert: false,
+          },
+          pagination: {
+            el: ".blog-slider__pagination",
+            clickable: true,
           },
         });
-      }
-      card_carouselInit();
+
+        // Initialisation du carrousel Owl pour les cartes
+        function card_carouselInit() {
+          $(".owl-carousel.card_carousel").owlCarousel({
+            dots: false,
+            loop: true,
+            margin: 20,
+            stagePadding: 2,
+            autoplay: true,
+            autoplayTimeout: 2500,
+            nav: true,
+            navText: [
+              "<i class='far fa-arrow-alt-circle-left'></i>",
+              "<i class='far fa-arrow-alt-circle-right'></i>",
+            ],
+            autoplayHoverPause: true,
+            responsive: {
+              0: {
+                items: 1,
+              },
+              865: {
+                items: 2,
+              },
+              992: {
+                items: 3,
+              },
+            },
+          });
+        }
+        card_carouselInit();
+      };
     </script>
   </body>
 </html>

@@ -12,6 +12,12 @@ body {
     height: 500vh;
 }
 
+nav svg {
+    background-color: #13A106;
+    border-radius: 50%;
+    padding: 5px;
+}
+
 nav {
     position: absolute;
     display: flex;
@@ -89,7 +95,7 @@ nav.top-nav {
 }
 
 /* Pour les écrans plus larges que 768px, appliquez le fond blanc au défilement */
-@media (min-width: 769px) {
+@media (min-width: 865px) {
     .top-nav.scrolled {
         background-color: white;
         /* Applique un fond blanc */
@@ -100,7 +106,7 @@ nav.top-nav {
 
 /* Sur les écrans de 768px de large ou moins, aucun style spécifique n'est nécessaire pour .scrolled */
 /* Vous pouvez soit ne rien mettre, soit réinitialiser des styles si nécessaire */
-@media (max-width: 768px) {
+@media (max-width: 865px) {
     .top-nav.scrolled {
         background-color: transparent;
         /* S'assure que le fond est transparent */
@@ -125,6 +131,7 @@ nav.top-nav.scrolled a#CTA {
     z-index: 10001;
     /* Plus élevé que le menu pour rester cliquable */
     color: #13A106;
+    outline: none;
 }
 
 .menu.active {
@@ -147,7 +154,7 @@ nav.top-nav.scrolled a#CTA {
     width: 90vw;
     height: 70vh;
     position: absolute;
-    top: 70%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%);
 }
@@ -183,7 +190,7 @@ nav.top-nav.scrolled a#CTA {
 }
 
 /* Styles pour les écrans mobiles */
-@media (max-width: 768px) {
+@media (max-width: 865px) {
     .hamburger {
         display: block;
         /* Afficher le bouton de menu hamburger */
@@ -261,13 +268,17 @@ header .background h2 {
     background-color: rgba(0, 0, 0, 0.687);
 }
 
+section {
+    height: 100vh;
+}
+
 section.first {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 50px;
-    height: 80vh !important;
+    height: 75vh !important;
 }
 
 section.first p,
@@ -292,7 +303,6 @@ section.first svg {
 @media (max-width: 1020px) {
     header .background h1 {
         bottom: 150px;
-
     }
 
     header .background h2 {
@@ -302,6 +312,50 @@ section.first svg {
 
 }
 
+@media (max-width: 900px) {
+    header .background h1 {
+        font-size: 30px;
+    }
+
+    header .background h2 {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 770px) {
+    header .background h1 {
+        bottom: 200px;
+    }
+
+    header .background h2 {
+        bottom: 150px;
+    }
+}
+
+@media (max-width: 635px) {
+
+    header .background h1,
+    header .background h2 {
+        left: 20px;
+    }
+}
+
+@media (max-width: 570px) {
+    header .background h1,
+    header .background h2 {
+        left: 50px;
+    }
+
+    header .background h1{
+        top: 150px;
+    }
+
+    header .background h2 {
+        top: 200px;
+    }
+}
+
 .overlay {
     position: absolute;
     width: 100%;
@@ -309,12 +363,25 @@ section.first svg {
     top: 0;
     left: 0;
     background: linear-gradient(to bottom, #0000006b, #0000006b);
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
 
 }
 
+@media(max-width: 1100px) {
+    .hero-slider {
+        width: 95% !important;
+        height: 350px !important;
+    }
+
+    .flickity-page-dots {
+        top: 329px !important;
+    }
+}
+
 .hero-slider {
-    width: 90%;
-    height: 500px;
+    width: 80%;
+    height: 400px;
     overflow: hidden;
     border-radius: 20px 20px 20px 20px;
 }
@@ -325,7 +392,6 @@ section.first svg {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border-radius: 0px 0px 800px 0px;
 }
 
 .carousel-cell .inner {
@@ -347,7 +413,7 @@ section.first svg {
 }
 
 .carousel-cell .title {
-    font-size: 3rem;
+    font-size: 25px;
     line-height: 1.2em;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -355,7 +421,6 @@ section.first svg {
 }
 
 .carousel-cell .btn {
-    border: 1px solid #fff;
     padding: 14px 18px;
     text-transform: uppercase;
     font-size: 0.8rem;
@@ -363,11 +428,11 @@ section.first svg {
     color: #fff;
     text-decoration: none;
     transition: all 0.2s ease;
+    background-color: #13A106;
 }
 
 .carousel-cell .btn:hover {
-    background: #fff;
-    color: #000;
+    background-color: #0F7A05;
 }
 
 .flickity-prev-next-button {
@@ -395,7 +460,7 @@ section.first svg {
     width: 30px !important;
     height: 4px !important;
     opacity: 1;
-    background: rgb(0, 0, 0) !important;
+    background: rgb(195, 195, 195) !important;
     border: 0;
     z-index: 0;
     top: 0;
@@ -409,7 +474,7 @@ section.first svg {
 }
 
 .flickity-page-dots {
-    top: 470px;
+    top: 350px;
     height: fit-content;
 }
 
@@ -445,10 +510,6 @@ section.first h3#first {
     font-size: 25px !important;
 }
 
-section.third {
-    height: 80vh !important;
-}
-
 
 
 
@@ -478,11 +539,15 @@ section.third {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider {
         min-height: 500px !important;
         height: auto !important;
         margin: 180px auto !important;
+    }
+
+    section.third {
+        height: fit-content !important;
     }
 }
 
@@ -497,7 +562,7 @@ section.third {
     align-items: center !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__item {
         flex-direction: column !important;
     }
@@ -536,7 +601,7 @@ section.third {
     transition: all 0.3s !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__img {
         transform: translateY(-50%) !important;
         width: 90% !important;
@@ -559,7 +624,7 @@ section.third {
     padding-right: 25px !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__content {
         margin-top: -80px !important;
         text-align: center !important;
@@ -637,7 +702,7 @@ section.third {
     transform: translateY(-50%) !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__pagination {
         transform: translateX(-50%) !important;
         left: 50% !important;
@@ -653,7 +718,7 @@ section.third {
     margin: 8px 0 !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
         margin: 0 5px !important;
     }
@@ -676,7 +741,7 @@ section.third {
     box-shadow: 0px 0px 20px rgba(56, 252, 76, 0.3) !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__pagination .swiper-pagination-bullet-active {
         height: 11px !important;
         width: 30px !important;
@@ -755,7 +820,7 @@ section.third {
 }
 
 .blog-slider {
-    width: 95% !important;
+    width: 70% !important;
     position: relative !important;
     max-width: 800px !important;
     margin: auto !important;
@@ -774,7 +839,7 @@ section.third {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider {
         min-height: 500px !important;
         height: auto !important;
@@ -793,7 +858,7 @@ section.third {
     align-items: center !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__item {
         flex-direction: column !important;
     }
@@ -832,10 +897,12 @@ section.third {
     transition: all 0.3s !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__img {
         transform: translateY(-50%) !important;
-        width: 90% !important;
+    }
+
+    .blog-slider__img:after{
     }
 }
 
@@ -855,7 +922,7 @@ section.third {
     padding-right: 25px !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__content {
         margin-top: -80px !important;
         text-align: center !important;
@@ -906,6 +973,7 @@ section.third {
     justify-content: center !important;
     text-align: center !important;
     letter-spacing: 1px !important;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 576px) {
@@ -932,7 +1000,7 @@ section.third {
     transform: translateY(-50%) !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__pagination {
         transform: translateX(-50%) !important;
         left: 50% !important;
@@ -948,7 +1016,7 @@ section.third {
     margin: 8px 0 !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__pagination.swiper-pagination-bullets .swiper-pagination-bullet {
         margin: 0 5px !important;
     }
@@ -971,7 +1039,7 @@ section.third {
     box-shadow: 0px 0px 20px #13a106c0 !important;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 865px) {
     .blog-slider__pagination .swiper-pagination-bullet-active {
         height: 11px !important;
         width: 30px !important;
@@ -979,11 +1047,11 @@ section.third {
 }
 
 section.fourth {
-    height: auto !important;
+    min-height: 100vh !important;
+    height: auto;
 }
 
 section.fourth .contTeam {
-    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1011,6 +1079,7 @@ section.fourth .contTeam .card #desc {
     padding: 10px 10px;
     border-radius: 20px;
     margin: 0 20px;
+    text-align: left;
 }
 
 section.fourth .contTeam .card #name {
@@ -1132,11 +1201,7 @@ section.fourth .contTeam .card #desc {
     font-size: 18px;
 }
 
-section {
-    height: 100vh;
-}
-
-.overlayMenu{
+.overlayMenu {
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(6px);
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
@@ -1147,4 +1212,78 @@ section {
     left: 0;
     z-index: 9;
     display: none;
+}
+
+
+
+
+
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger svg {
+    width: 50px;
+    height: 50px;
+}
+
+.line {
+    fill: none;
+    stroke: #13A106;
+    stroke-width: 6;
+    transition: stroke-dasharray 400ms cubic-bezier(0.4, 0.0, 0.2, 1),
+        stroke-dashoffset 400ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+}
+
+.line2 {
+    stroke-dasharray: 60 60;
+    stroke-dashoffset: 0;
+    stroke-width: 6;
+}
+
+.line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+}
+
+.hamburger.active .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+}
+
+.hamburger.active .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+}
+
+.hamburger.active .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+}
+
+.hb {
+    width: 50px;
+    /* Adjust the size as needed */
+    margin: 20px;
+    /* Adjust the margin as needed */
+    cursor: pointer;
+}
+
+
+@media (max-width: 900px) {
+
+    .title,
+    .subTitle {
+        font-size: 25px;
+    }
 }
