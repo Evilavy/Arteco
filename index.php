@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -20,7 +23,7 @@
     <link href="styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="styles/fontawesome.min.css" rel="stylesheet" type="text/css" />
     <link href="styles/owl.carousel.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
     <title>Accueil</title>
   </head>
   <body>
@@ -90,7 +93,11 @@
           <a href="#">Nos partenaires</a>
         </div>
         <div class="right">
-          <a href="#"><img src="/assets/logo facebook.png" alt="" /></a>
+          <a
+            target="_blank"
+            href="https://www.facebook.com/profile.php?id=61553917978826"
+            ><img src="/assets/logo facebook.png" alt=""
+          /></a>
           <a id="CTA" href="#">Devis gratuit</a>
         </div>
       </div>
@@ -102,7 +109,9 @@
         <h1 class="title animate__animated animate__fadeInLeft">
           Économisez plus, isolez mieux.
         </h1>
-        <h2 class="subTitle animate__animated animate__fadeInLeft animate__delay-1s">
+        <h2
+          class="subTitle animate__animated animate__fadeInLeft animate__delay-1s"
+        >
           L'isolation par excellence.
         </h2>
       </div>
@@ -118,9 +127,7 @@
         cum! Odit natus consequuntur veritatis voluptatem, assumenda placeat
         quae amet ab veniam porro rerum vel dolor quia unde fugit nesciunt nisi
         quos omnis itaque explicabo? Laudantium. Atque, saepe! Officiis
-        doloremque quae omnis. Eos aspernatur illum, laboriosam quod officiis
-        facere ad laborum maiores sequi, error fuga sunt, quisquam dolorem
-        quibusdam. Assumenda in.
+        doloremque quae omnis.
       </p>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -146,9 +153,7 @@
       <div class="hero-slider" data-carousel>
         <div
           class="carousel-cell"
-          style="
-            background-image: url(/assets/pompeChaleur.jpeg);
-          "
+          style="background-image: url(./assets/pompeChaleur.jpeg)"
         >
           <div class="overlay"></div>
           <div class="inner">
@@ -165,9 +170,7 @@
         </div>
         <div
           class="carousel-cell"
-          style="
-            background-image: url(/assets/toiture.png);
-          "
+          style="background-image: url(./assets/toiture.png)"
         >
           <div class="overlay"></div>
           <div class="inner">
@@ -184,14 +187,16 @@
         </div>
         <div
           class="carousel-cell"
-          style="
-            background-image: url(https://68.media.tumblr.com/3beb13a4167aa8b5c4743eac17bf351c/tumblr_o8nyvtiHfC1slhhf0o1_1280.jpg);
-          "
+          style="background-image: url(./assets/facade.jpeg)"
         >
           <div class="overlay"></div>
           <div class="inner">
-            <h2 class="title">Flickity Parallax</h2>
-            <p class="subtitle">Slide 3</p>
+            <h2 class="title">Façade</h2>
+            <p class="subtitle">
+              Éliminez les mousses, lichens, champignons, fissures, lézardes et
+              traces rouges de votre façade grâce à la rénovation de façade
+              Technitoit.
+            </p>
             <a href="https://flickity.metafizzy.co/" target="_blank" class="btn"
               >Estimer</a
             >
@@ -214,12 +219,16 @@
             </div>
             <div class="blog-slider__content">
               <span class="blog-slider__code">26 December 2019</span>
-              <div class="blog-slider__title">Lorem Ipsum Dolor</div>
-              <div class="blog-slider__text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Recusandae voluptate repellendus magni illo ea animi?
+              <div class="blog-slider__title">
+                L'hydrofuge coloré sur tuiles.
               </div>
-              <a href="#" class="blog-slider__button">READ MORE</a>
+              <div class="blog-slider__text">
+                Nouveaux propriétaires d’une belle maison en Haute-Garonne près
+                de Toulouse, nos clients avaient entrepris de réaliser des
+                travaux de rénovation de leur toiture avant même d’effectuer
+                leur achat.
+              </div>
+              <a href="#" class="blog-slider__button">Consulter</a>
             </div>
           </div>
           <div class="blog-slider__item swiper-slide">
@@ -231,12 +240,16 @@
             </div>
             <div class="blog-slider__content">
               <span class="blog-slider__code">26 December 2019</span>
-              <div class="blog-slider__title">Lorem Ipsum Dolor2</div>
-              <div class="blog-slider__text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Recusandae voluptate repellendus magni illo ea animi?
+              <div class="blog-slider__title">
+                Rénovation ardoises naturelle.
               </div>
-              <a href="#" class="blog-slider__button">READ MORE</a>
+              <div class="blog-slider__text">
+                Dans le Finistère (29), Technitoit avait été sollicité pour
+                réaliser une rénovation de toiture d’envergure. L’immense
+                bâtisse, construite au cœur d’un paysage boisé, n’avait pas
+                bénéficié d’un entretien régulier.
+              </div>
+              <a href="#" class="blog-slider__button">Consulter</a>
             </div>
           </div>
 
@@ -249,12 +262,13 @@
             </div>
             <div class="blog-slider__content">
               <span class="blog-slider__code">26 December 2019</span>
-              <div class="blog-slider__title">Lorem Ipsum Dolor</div>
+              <div class="blog-slider__title">Panneaux solaires.</div>
               <div class="blog-slider__text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Recusandae voluptate repellendus magni illo ea animi?
+                Propriétaires d’une belle maison en Gironde (33), nos clients
+                avaient fait appel à Technitoit une première fois pour la
+                rénovation de leur toiture.
               </div>
-              <a href="#" class="blog-slider__button">READ MORE</a>
+              <a href="#" class="blog-slider__button">Consulter</a>
             </div>
           </div>
         </div>
@@ -309,76 +323,94 @@
           <div class="row">
             <div class="col-12">
               <div class="owl-carousel card_carousel">
+                <!-- Article Preview 4 -->
                 <div class="card_box">
-                  <div class="img_box">
-                    <img class="img-fluid" src="img/team1.png" alt="" />
+                  <div
+                    class="img_box"
+                    style="background-image: url(assets/facade.jpeg)"
+                  >
+                    <!-- Background image for article on exterior painting -->
                   </div>
                   <div class="text_box">
-                    <h4>Arun Chandra</h4>
-                    <p>Senior CEO</p>
+                    <h4>Peinture extérieure: Choix et application</h4>
+                    <p>
+                      Conseils pour choisir la peinture extérieure idéale et
+                      techniques pour une application durable et esthétique.
+                    </p>
+                    <a href="#" class="blog-slider__button">READ MORE</a>
                   </div>
                 </div>
+
+                <!-- Article Preview 5 -->
                 <div class="card_box">
-                  <div class="img_box">
-                    <img class="img-fluid" src="img/team2.png" alt="" />
+                  <div
+                    class="img_box"
+                    style="background-image: url(assets/facade.jpeg)"
+                  >
+                    <!-- Background image for article on outdoor landscaping -->
                   </div>
                   <div class="text_box">
-                    <h4>Ishita Chandra</h4>
-                    <p>Senior CEO</p>
+                    <h4>Aménagement paysager: Créer un espace de rêve</h4>
+                    <p>
+                      Idées et astuces pour transformer votre jardin en un
+                      magnifique espace de détente et de loisirs.
+                    </p>
+                    <a href="#" class="blog-slider__button">READ MORE</a>
                   </div>
                 </div>
+
+                <!-- Article Preview 6 -->
                 <div class="card_box">
-                  <div class="img_box">
-                    <img class="img-fluid" src="img/team3.png" alt="" />
+                  <div
+                    class="img_box"
+                    style="background-image: url(assets/facade.jpeg)"
+                  >
+                    <!-- Background image for article on eco-friendly heating -->
                   </div>
                   <div class="text_box">
-                    <h4>halim Molla</h4>
-                    <p>Senior CEO</p>
+                    <h4>Systèmes de chauffage écologiques</h4>
+                    <p>
+                      Explorez les options de chauffage durable pour réduire
+                      votre empreinte carbone tout en gardant votre maison au
+                      chaud.
+                    </p>
+                    <a href="#" class="blog-slider__button">READ MORE</a>
                   </div>
                 </div>
+
+                <!-- Article Preview 7 -->
                 <div class="card_box">
-                  <div class="img_box">
-                    <img class="img-fluid" src="img/team4.png" alt="" />
+                  <div
+                    class="img_box"
+                    style="background-image: url(assets/facade.jpeg)"
+                  >
+                    <!-- Background image for article on custom carpentry -->
                   </div>
                   <div class="text_box">
-                    <h4>Tiya Moni</h4>
-                    <p>Senior CEO</p>
+                    <h4>Menuiserie sur mesure pour votre maison</h4>
+                    <p>
+                      Découvrez comment la menuiserie sur mesure peut
+                      transformer et personnaliser votre espace de vie.
+                    </p>
+                    <a href="#" class="blog-slider__button">READ MORE</a>
                   </div>
                 </div>
+
+                <!-- Article Preview 8 -->
                 <div class="card_box">
-                  <div class="img_box">
-                    <img class="img-fluid" src="img/team1.png" alt="" />
+                  <div
+                    class="img_box"
+                    style="background-image: url(assets/facade.jpeg)"
+                  >
+                    <!-- Background image for article on renewable energies -->
                   </div>
                   <div class="text_box">
-                    <h4>Arun Chandra</h4>
-                    <p>Senior CEO</p>
-                  </div>
-                </div>
-                <div class="card_box">
-                  <div class="img_box">
-                    <img class="img-fluid" src="img/team2.png" alt="" />
-                  </div>
-                  <div class="text_box">
-                    <h4>Arun Chandra</h4>
-                    <p>Senior CEO</p>
-                  </div>
-                </div>
-                <div class="card_box">
-                  <div class="img_box">
-                    <img class="img-fluid" src="img/team3.png" alt="" />
-                  </div>
-                  <div class="text_box">
-                    <h4>Arun Chandra</h4>
-                    <p>Senior CEO</p>
-                  </div>
-                </div>
-                <div class="card_box">
-                  <div class="img_box">
-                    <img class="img-fluid" src="img/team4.png" alt="" />
-                  </div>
-                  <div class="text_box">
-                    <h4>Arun Chandra</h4>
-                    <p>Senior CEO</p>
+                    <h4>Investir dans les énergies renouvelables à domicile</h4>
+                    <p>
+                      Un guide pour intégrer les énergies solaire, éolienne et
+                      autres sources renouvelables dans votre foyer.
+                    </p>
+                    <a href="#" class="blog-slider__button">READ MORE</a>
                   </div>
                 </div>
               </div>
@@ -389,6 +421,11 @@
     </section>
 
     <div class="overlayMenu"></div>
+
+    <!-- Ajoutez ceci à votre corps HTML, à l'endroit souhaité -->
+    <div id="scrollButton" class="pulse-button">
+      <p>Devis gratuit</p>
+    </div>
 
     <!-- Include Swiper's JS just before initializing Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -460,7 +497,6 @@
             loop: true,
             margin: 20,
             stagePadding: 2,
-            autoplay: true,
             autoplayTimeout: 2500,
             nav: true,
             navText: [
@@ -483,6 +519,45 @@
         }
         card_carouselInit();
       };
+
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        var scrollHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        var scrollPosition =
+          window.scrollY || document.documentElement.scrollTop;
+
+        // Calcule le pourcentage de défilement
+        var scrollPercentage = scrollPosition / scrollHeight;
+
+        // Affiche le bouton si le pourcentage de défilement dépasse 40%
+        if (scrollPercentage > 0.3) {
+          document.getElementById("scrollButton").style.display = "flex";
+        } else {
+          document.getElementById("scrollButton").style.display = "none";
+        }
+      }
+
+      document.addEventListener("scroll", function () {
+        var blogSlider = document.querySelector(".blog-slider");
+        var position = blogSlider.getBoundingClientRect();
+
+        // Vérifie si blogSlider est dans la fenêtre d'affichage
+        if (position.top >= -50 && position.bottom <= window.innerHeight) {
+          // Supprime la classe pour réinitialiser l'animation
+          blogSlider.classList.remove("animate-line");
+
+          // Force le navigateur à reconnaître la suppression de la classe
+          void blogSlider.offsetWidth;
+
+          // Rajoute la classe pour déclencher l'animation
+          blogSlider.classList.add("animate-line");
+        }
+      });
     </script>
   </body>
 </html>

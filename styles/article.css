@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Ubuntu';
+}
+
+body {
+    height: 500vh;
+}
+
+body::before {
+    --line: hsla(0, 0%, 74%, 0.15);
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background:
+        linear-gradient(90deg, var(--line) 1px, transparent 1px 5vmin) 0 -2.5vmin / 5vmin 5vmin,
+        linear-gradient(var(--line) 1px, transparent 1px 5vmin) 0 -2.5vmin / 5vmin 5vmin;
+    mask: linear-gradient(-15deg, transparent 30%, white);
+    top: 0;
+    z-index: -1;
+    transform: translate3d(0, 0, -100vmin);
+}
+
+nav svg {
+    background-color: #13A106;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    align-items: center;
+    padding: 20px 30px;
+    z-index: 9999;
+}
+
+nav a {
+    color: black;
+    transition: .2s;
+}
+
+nav a:hover {
+    color: #13A106;
+}
+
+nav a#logo:hover {
+    color: #fff;
+}
+
+nav a#CTA {
+    background: linear-gradient(180deg, #13A106 0%, #0C6504 100%);
+    padding: 10px 30px;
+    border-radius: 20px;
+}
+
+nav a#logo {
+    font-weight: bold;
+    font-size: larger;
+    text-decoration: underline;
+    text-decoration-color: #13A106;
+    text-underline-offset: 3px;
+}
+
+nav .left,
+nav .right {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 30px;
+}
+
+nav .right {
+    align-items: center !important;
+}
+
+nav .right a img {
+    height: 20px;
+}
+
+nav.top-nav {
+    position: fixed;
+    transition: background-color 0.3s;
+}
+
+@media (max-width: 1070px) {
+    nav a {
+        font-size: smaller;
+    }
+}
+
+@media (max-width: 950px) {
+
+    nav .left,
+    nav .right {
+        gap: 25px;
+    }
+
+    nav a#CTA {
+        padding: 5px 10px;
+    }
+}
+
+/* Pour les écrans plus larges que 768px, appliquez le fond blanc au défilement */
+@media (min-width: 865px) {
+    .top-nav.scrolled {
+        background-color: white;
+        /* Applique un fond blanc */
+        border-bottom: 0.5px solid #494949;
+        /* Ajoute une bordure en bas */
+    }
+}
+
+/* Sur les écrans de 768px de large ou moins, aucun style spécifique n'est nécessaire pour .scrolled */
+/* Vous pouvez soit ne rien mettre, soit réinitialiser des styles si nécessaire */
+@media (max-width: 865px) {
+    .top-nav.scrolled {
+        background-color: transparent;
+        /* S'assure que le fond est transparent */
+        border-bottom: none;
+        /* Supprime la bordure en bas si elle était définie ailleurs */
+    }
+}
+
+
+nav.top-nav.scrolled a {
+    color: black;
+    transition: color 0.3s;
+}
+
+nav.top-nav.scrolled a#CTA {
+    color: white;
+    transition: color 0.3s;
+}
+
+/* Ajouté pour garantir que le menu ne couvre pas le bouton hamburger */
+.top-nav .hamburger {
+    z-index: 10001;
+    /* Plus élevé que le menu pour rester cliquable */
+    color: #13A106;
+    outline: none;
+}
+
+.menu.active {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 60px;
+    /* Ajustez en fonction de la hauteur de votre nav */
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    /* Ou toute autre couleur de fond */
+    flex-direction: column;
+    align-items: center;
+    /* Centre les éléments du menu */
+    padding: 20px 0;
+    /* Espace autour des éléments du menu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optionnel: Ajoute une ombre */
+    width: 90vw;
+    height: 70vh;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.menu.active .left {
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu.active .right {
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Style de base pour le bouton de menu hamburger */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    /* Ou une autre couleur adaptée à votre design */
+    cursor: pointer;
+}
+
+/* Masquer les éléments de menu par défaut */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Styles pour les écrans mobiles */
+@media (max-width: 865px) {
+    .hamburger {
+        display: block;
+        /* Afficher le bouton de menu hamburger */
+    }
+
+    .menu {
+        display: none;
+        /* Masquer les liens de navigation par défaut */
+        flex-direction: column;
+        /* Pour afficher les liens verticalement */
+    }
+
+    nav a {
+        color: black;
+        /* Couleur du texte pour le mode mobile */
+    }
+
+    nav a#CTA {
+        color: white;
+        /* Couleur du texte pour le mode mobile */
+    }
+
+
+    /* Affichage du menu lorsque le menu hamburger est activé */
+    .menu.active {
+        display: flex;
+    }
+}
+
+.contImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.img{
+    background-image: url("/assets/facade.jpeg");
+    height: 270px;
+    width: 90vw;
+}
