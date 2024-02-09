@@ -91,6 +91,11 @@ $personnels = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <?= nl2br(htmlspecialchars($personnel['description'])) ?>
                     </p>
                 </div>
+                <!-- Ajout du lien de modification -->
+                <a href="edit_staff.php?id=<?= $personnel['idPersonel'] ?>"
+                    style="margin-left: auto; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Modifier</a>
+                <a href="delete_staff.php?id=<?= $personnel['idPersonel'] ?>"
+                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce membre du personnel ?');">Supprimer</a>
             </div>
         <?php endforeach; ?>
     </div>

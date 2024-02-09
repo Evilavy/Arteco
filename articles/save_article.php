@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../db.php'; // Assurez-vous que ce chemin vers le fichier de connexion à la base de données est correct
+require '../db.php';
 
 try {
     // Activez les exceptions PDO pour gérer les erreurs de base de données

@@ -11,7 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Gestion de l'upload de la photo
     $dossierCible = "../staffRepo/";
+    $dossierCibleDB = "staffRepo/";
     $fichierCible = $dossierCible . basename($_FILES["photo"]["name"]);
+    $fichierCibleDB = $dossierCibleDB . basename($_FILES["photo"]["name"]);
     $uploadOk = 1;
     $typeImage = strtolower(pathinfo($fichierCible, PATHINFO_EXTENSION));
 
@@ -55,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt = $pdo->prepare($sql);
 
             // Exécution de la requête
-            $result = $stmt->execute([$nomComplet, $description, $fichierCible]);
+            $result = $stmt->execute([$nomComplet, $description, $fichierCibleDB]);
 
             // Vérification de la réussite de l'insertion
             if ($result) {

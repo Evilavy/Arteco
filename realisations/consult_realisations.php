@@ -27,7 +27,6 @@ $prestations = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         .prestation-img {
             width: 100px;
-            /* ou autre dimension selon vos besoins */
             height: auto;
         }
     </style>

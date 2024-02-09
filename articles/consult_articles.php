@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+include '../db.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -30,31 +31,11 @@ error_reporting(E_ALL);
 
         .article-image-container {
             width: 100%;
-            /* Largeur du conteneur de l'image */
             height: 300px;
-            /* Hauteur fixe pour toutes les images */
             background-position: center;
-            /* Centre l'image dans le conteneur */
             background-size: cover;
-            /* S'assure que l'image couvre tout l'espace disponible sans être étirée */
             border-radius: 5px;
-            /* Optionnel: ajoute un bord arrondi comme pour vos images actuelles */
             overflow: hidden;
-            /* Empêche l'image de déborder du conteneur */
-        }
-
-        .article-overlay {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            /* Largeur du conteneur de l'image */
-            height: 300px;
-            background: linear-gradient(180deg, rgba(8, 105, 0, 0.8) 0%, rgba(19, 161, 6, 0.40) 100%) !important;
-            border-radius: 5px;
-        }
-
-        .contImage{
-            position: relative;
         }
 
         .article-title {
@@ -76,6 +57,20 @@ error_reporting(E_ALL);
             text-indent: 40px;
         }
 
+        .consult-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .consult-button:hover {
+            background-color: #45a049;
+        }
+
         hr {
             margin-top: 20px;
             border: none;
@@ -86,38 +81,39 @@ error_reporting(E_ALL);
 
 <body>
     <a href="./write_new_article.php"><input type="button" value="Nouvel article"></a>
+
     <?php
-    include '../db.php'; // Assurez-vous d'avoir un fichier 'db.php' pour la connexion à la base de données
-    
-    $sqlArticles = "SELECT * FROM Article WHERE published = 1"; // Sélectionnez tous les articles publiés
+    $sqlArticles = "SELECT * FROM Article WHERE published = 1";
     $stmtArticles = $pdo->prepare($sqlArticles);
     $stmtArticles->execute();
 
     while ($article = $stmtArticles->fetch()) {
         echo "<div class='article-container'>";
-
-        if (!empty($article['srcImage'])) {
-            $imagePath = htmlspecialchars($article['srcImage']); // Assurez-vous d'échapper correctement le chemin de l'image
-            echo '<div class="contImage">';
-            echo "<div class='article-image-container' style='background-image: url(\"$imagePath\");'></div>";
-            echo "<div class='article-overlay'></div>";
-            echo '</div>';
-        }
-
         echo "<h1 class='article-title'>" . htmlspecialchars($article['titre']) . "</h1>";
 
-        $sqlSections = "SELECT * FROM Section WHERE idArticle = ? ORDER BY ordre";
-        $stmtSections = $pdo->prepare($sqlSections);
-        $stmtSections->execute([$article['idArticle']]);
+        if ($article['isLien'] == 1) {
+            echo "<div class='article-image-container' style='background-image: url(\"../assets/defaultArticle.webp\");'></div>";
+            echo "<a href='" . htmlspecialchars($article['lien']) . "' target='_blank' class='consult-button'>Consulter</a>";
+            echo "<a href='delete_article.php?id=". $article['idArticle'] ."' class='consult-button'>Suprimer</a>";
+        } else {
+            if (!empty($article['srcImage'])) {
+                $imagePath = htmlspecialchars($article['srcImage']);
+                echo "<div class='article-image-container' style='background-image: url(\"$imagePath\");'></div>";
+            }
 
-        while ($section = $stmtSections->fetch()) {
-            echo "<h2 class='section-title'>" . htmlspecialchars($section['titre']) . "</h2>";
-            echo "<p class='section-content'>" . nl2br(htmlspecialchars($section['texte'])) . "</p>";
+            $sqlSections = "SELECT * FROM Section WHERE idArticle = ? ORDER BY ordre";
+            $stmtSections = $pdo->prepare($sqlSections);
+            $stmtSections->execute([$article['idArticle']]);
+
+            while ($section = $stmtSections->fetch()) {
+                echo "<h2 class='section-title'>" . htmlspecialchars($section['titre']) . "</h2>";
+                echo "<p class='section-content'>" . nl2br(htmlspecialchars($section['texte'])) . "</p>";
+            }
+            echo "<a href='edit_article.php?id=". $article['idArticle'] ."' class='consult-button'>Editer</a>";
+            echo "<a href='delete_article.php?id=". $article['idArticle'] ."' class='consult-button'>Suprimer</a>";
         }
 
         echo "<hr>";
-        echo "<a href='edit_article.php?id=" . $article['idArticle'] . "' class='edit-button'>Éditer</a>";
-        echo "<a href='delete_article.php?id=" . $article['idArticle'] . "' class='edit-button'>Supprimer</a>";
         echo "</div>";
     }
     ?>

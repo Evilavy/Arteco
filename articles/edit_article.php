@@ -3,7 +3,7 @@ session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require '../db.php'; // Assurez-vous que ce chemin est correct
+require '../db.php';
 
 // Récupérer l'article et les sections si on est en GET
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
