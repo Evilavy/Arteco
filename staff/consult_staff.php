@@ -77,11 +77,12 @@ $personnels = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
+    <a href="../admin.html" style="position: absolute; top: 20px; left: 20px;"><img style="height: 40px;" src="../assets/Menu.png" alt=""></a>
     <div class="container">
         <h1>Consultation du Personnel</h1>
         <?php foreach ($personnels as $personnel): ?>
             <div class="personnel-container">
-                <img src="<?= htmlspecialchars($personnel['photo']) ?>"
+                <img src="../<?= htmlspecialchars($personnel['photo']) ?>"
                     alt="Photo de <?= htmlspecialchars($personnel['nomComplet']) ?>">
                 <div class="personnel-info">
                     <h2>
@@ -93,8 +94,9 @@ $personnels = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
                 <!-- Ajout du lien de modification -->
                 <a href="edit_staff.php?id=<?= $personnel['idPersonel'] ?>"
-                    style="margin-left: auto; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Modifier</a>
+                    style="margin-left: auto; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; margin-right:20px;">Modifier</a>
                 <a href="delete_staff.php?id=<?= $personnel['idPersonel'] ?>"
+                    style="margin-left: auto; padding: 10px 20px; background-color: #ff4444; color: white; text-decoration: none; border-radius: 5px;"
                     onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce membre du personnel ?');">Supprimer</a>
             </div>
         <?php endforeach; ?>

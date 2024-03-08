@@ -35,11 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_article'], $_PO
     // Gérer le téléversement de l'image
     if (isset($_FILES['article_image']) && $_FILES['article_image']['error'] === UPLOAD_ERR_OK) {
         $uploadDir = '../articleRepo/';
+        $uploadDirDB = 'articleRepo/';
         $imageName = time() . '-' . basename($_FILES['article_image']['name']);
         $imageFullPath = $uploadDir . $imageName;
+        $imageFullPathDB = $uploadDirDB . $imageName;
 
         if (move_uploaded_file($_FILES['article_image']['tmp_name'], $imageFullPath)) {
             $imagePath = $imageFullPath;
+            $imagePathDB = $imageFullPathDB;
         } else {
             throw new Exception("Erreur lors du téléversement de l'image.");
         }
@@ -47,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_article'], $_PO
 
     $sqlUpdateArticle = "UPDATE Article SET titre = ?, srcImage = COALESCE(?, srcImage) WHERE idArticle = ?";
     $stmtUpdateArticle = $pdo->prepare($sqlUpdateArticle);
-    $stmtUpdateArticle->execute([$articleTitle, $imagePath, $articleId]);
+    $stmtUpdateArticle->execute([$articleTitle, $imagePathDB, $articleId]);
 
     foreach ($sectionIds as $index => $sectionId) {
         $title = $sectionTitles[$index];
@@ -110,6 +113,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_article'], $_PO
             border-radius: 5px;
         }
 
+        .form-group textarea {
+            height: 150px;
+        }
+
         .form-group input[type="file"] {
             border: none;
         }
@@ -138,6 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_article'], $_PO
 </head>
 
 <body>
+    <a href="../admin.html" style="position: absolute; top: 20px; left: 20px;"><img style="height: 40px;" src="../assets/Menu.png" alt=""></a>
     <div class="form-container">
         <h1>Éditer l'article</h1>
         <form method="post" enctype="multipart/form-data" class="edit-form">

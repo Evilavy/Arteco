@@ -58,6 +58,7 @@
 </head>
 
 <body>
+    <a href="../admin.html" style="position: absolute; top: 20px; left: 20px;"><img style="height: 40px;" src="../assets/Menu.png" alt=""></a>
     <div class="container">
         <h1>Votre article a été enregistré avec succès !</h1>
         <div class="links">

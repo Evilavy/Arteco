@@ -37,6 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
+    <a href="../admin.html" style="position: absolute; top: 20px; left: 20px;"><img style="height: 40px;"
+            src="../assets/Menu.png" alt=""></a>
     <h1>Éditer l'article</h1>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
@@ -58,8 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         h1 {
-            background-color: #333;
-            color: #fff;
             padding: 20px;
             text-align: center;
         }
@@ -189,8 +189,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .fa-times {
             margin-right: 5px;
         }
+
+        form#buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form#buttons button {
+            width: 200px;
+            border-radius: 10px;
+        }
+
+        button {@
+            background-color: green;
+        }
+
+        button.restart {
+            background-color: #e74c3c;
+        }
+
+        button.submit {
+            background-color: green;
+        }
+
+        form#delete{
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
+            width: fit-content;
+            border-radius: 0;
+        }
     </style>
 
+    <!-- Formulaire pour le titre de l'article -->
+    <form method="post" action="save_article.php" enctype="multipart/form-data" id="save">
+        <input type="text" name="article_title" placeholder="Titre de l'article"
+            value="<?php echo isset($_SESSION['article_title']) ? htmlspecialchars($_SESSION['article_title']) : ''; ?>"
+            required>
+        <input type="file" name="article_image" accept="image/*">
+    </form>
+
+    <!-- Affichage des sections existantes -->
     <div class="contSections">
         <?php foreach ($_SESSION['sections'] as $index => $section): ?>
             <div class="section">
@@ -203,7 +244,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <p>
                     <?= htmlspecialchars($section['content']) ?>
                 </p>
-                <form method="post">
+                <form method="post" id="delete">
                     <input type="hidden" name="section_index" value="<?= $index ?>">
                     <button type="submit" name="delete_section">Supprimer</button>
                 </form>
@@ -211,22 +252,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php endforeach; ?>
     </div>
 
+    <!-- Formulaire pour ajouter une nouvelle section -->
     <form method="post">
         <input type="text" name="section_title" placeholder="Titre de la section" required>
         <textarea name="content" placeholder="Corps de texte" required></textarea>
         <button type="submit" name="add_section">Ajouter une section</button>
     </form>
 
-    <form method="post" action="save_article.php" enctype="multipart/form-data">
-        <input type="text" name="article_title" placeholder="Titre de l'article" required>
-        <input type="file" name="article_image" accept="image/*">
-        <button type="submit" name="save_article">Enregistrer l'article</button>
+    <!-- Formulaire pour recommencer -->
+    <form action="clear_session.php" method="post" id="buttons">
+        <button class="restart" type="submit">Recommencer</button>
+        <button class="submit" type="submit" form="save" name="save_article">Enregistrer l'article</button>
     </form>
-
-    <form action="clear_session.php" method="post">
-        <button type="submit">Recommencer</button>
-    </form>
-    
 </body>
 
 </html>

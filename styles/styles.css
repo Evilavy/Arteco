@@ -3,14 +3,19 @@
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;
+    text-decoration: none !important;
     box-sizing: border-box;
     font-family: 'Ubuntu';
 }
 
 body {
-    height: 500vh;
     overflow-x: hidden;
+    touch-action: manipulation;
+}
+
+#scrollButton a {
+    color: #fff;
+    text-decoration: none;
 }
 
 body::before {
@@ -98,7 +103,7 @@ nav.top-nav {
     }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 980px) {
 
     nav .left,
     nav .right {
@@ -107,6 +112,14 @@ nav.top-nav {
 
     nav a#CTA {
         padding: 5px 10px;
+    }
+}
+
+@media (max-width: 905px) {
+
+    nav .left,
+    nav .right {
+        gap: 20px;
     }
 }
 
@@ -125,9 +138,12 @@ nav.top-nav {
 @media (max-width: 865px) {
     .top-nav.scrolled {
         background-color: transparent;
-        /* S'assure que le fond est transparent */
         border-bottom: none;
-        /* Supprime la bordure en bas si elle était définie ailleurs */
+    }
+
+    section.fourth .contTeam .card {
+        height: 250px;
+        width: 150px;
     }
 }
 
@@ -151,6 +167,7 @@ nav.top-nav.scrolled a#CTA {
 }
 
 .menu.active {
+    gap: 20px;
     display: flex;
     justify-content: center;
     position: absolute;
@@ -158,8 +175,7 @@ nav.top-nav.scrolled a#CTA {
     /* Ajustez en fonction de la hauteur de votre nav */
     left: 0;
     right: 0;
-    background-color: #fff;
-    /* Ou toute autre couleur de fond */
+    background: linear-gradient(#fff 0%, #13A106 700%);
     flex-direction: column;
     align-items: center;
     /* Centre les éléments du menu */
@@ -173,6 +189,7 @@ nav.top-nav.scrolled a#CTA {
     top: 80%;
     left: 50%;
     transform: translate(-50%);
+    border-radius: 10px;
 }
 
 .menu.active .left {
@@ -221,6 +238,7 @@ nav.top-nav.scrolled a#CTA {
 
     nav a {
         color: black;
+        font-size: medium;
         /* Couleur du texte pour le mode mobile */
     }
 
@@ -297,10 +315,14 @@ section.first {
     margin-top: 20px;
 }
 
-section.first p,
-section.fourth p {
+section.first p {
     width: 90vw;
     text-align: center;
+}
+
+section.fourth p {
+    text-align: center;
+    padding: 40px 70px;
 }
 
 section.first svg {
@@ -330,7 +352,7 @@ section.first svg {
 
 @media (max-width: 900px) {
     header .background h1 {
-        font-size: 30px;
+        font-size: 40px;
     }
 
     header .background h2 {
@@ -410,7 +432,7 @@ section.first svg {
 
 @media(max-width: 1100px) {
     .hero-slider {
-        width: 95% !important;
+        width: 80% !important;
         height: 350px !important;
     }
 
@@ -421,7 +443,7 @@ section.first svg {
 
 @media(max-width: 560px) {
     .hero-slider {
-        height: 300px !important;
+        height: 200px !important;
     }
 
     p.subtitle {
@@ -430,7 +452,7 @@ section.first svg {
     }
 
     .carousel-cell .title {
-        font-size: 20px !important;
+        font-size: 13px !important;
         margin-bottom: 15px !important;
     }
 
@@ -438,7 +460,7 @@ section.first svg {
         width: 48px !important;
     }
 
-    .carousel-cell .btn{
+    .carousel-cell .btn {
         font-size: 0.7em !important;
     }
 }
@@ -486,6 +508,7 @@ h3 {
     text-transform: uppercase;
     letter-spacing: 3px;
     margin-bottom: 40px;
+    padding: 0 10px;
 }
 
 .carousel-cell .btn {
@@ -550,7 +573,7 @@ section.second {
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-height: 90vh !important;
+    height: 80vh !important;
 }
 
 h3#title {
@@ -1136,14 +1159,17 @@ section.fourth .contTeam {
 }
 
 section.fourth .contTeam .card {
-    width: 250px;
-    height: 350px;
+    width: 200px;
+    height: 300px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
     gap: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 section.fourth .contTeam .card #name,
@@ -1155,6 +1181,7 @@ section.fourth .contTeam .card #desc {
     border-radius: 20px;
     margin: 0 20px;
     text-align: left;
+    font-size: smaller;
 }
 
 section.fourth .contTeam .card #name {
@@ -1214,6 +1241,9 @@ section.fourth .contTeam .card #desc {
     border-radius: 50%;
     z-index: 1;
     position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .text_box h4 {
@@ -1222,12 +1252,14 @@ section.fourth .contTeam .card #desc {
     font-size: 20px;
     font-weight: 700;
     margin: 30px 0 5px 0;
+    height: 48px;
 }
 
 .text_box p {
     font-weight: 400;
     color: #000000;
     font-size: 15px;
+    height: 100px;
 }
 
 .card_social li {
@@ -1278,8 +1310,9 @@ section.fourth .contTeam .card #desc {
 }
 
 .overlayMenu {
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(6px);
+    background: linear-gradient(to bottom, #0000006b, #0000006b);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
     position: fixed;
     width: 100%;
@@ -1360,7 +1393,7 @@ section.fourth .contTeam .card #desc {
 
     .title,
     .subTitle {
-        font-size: 25px;
+        font-size: 28px !important;
     }
 }
 
@@ -1421,6 +1454,10 @@ section.fifth h3 {
     margin: 0;
 }
 
+button.disabled {
+    color: gray;
+}
+
 @media screen and (max-width: 865px) {
     .pulse-button {
         height: auto;
@@ -1434,23 +1471,24 @@ section.fifth h3 {
     }
 }
 
-@media screen and (max-width: 500px){
-    h3{
+@media screen and (max-width: 500px) {
+    h3 {
         font-size: 35px !important;
     }
 }
 
-@media screen and (max-width: 865px){
-    .blog-slider__img{
+@media screen and (max-width: 865px) {
+    .blog-slider__img {
         transform: translateY(-50%) !important;
     }
+
     .blog-slider__img {
         width: 300px !important;
         height: 230px !important;
     }
 }
 
-@media screen and (max-width: 575px){
+@media screen and (max-width: 575px) {
     .blog-slider__img {
         width: 220px !important;
         height: 180px !important;
@@ -1472,4 +1510,51 @@ section.fifth h3 {
         transform: scale(0.95);
         box-shadow: 0 0 0 0 rgba(0, 255, 60, 0);
     }
+}
+
+@media (max-width: 865px) {
+    .top-nav.scrolled {
+        background-color: transparent;
+        /* S'assure que le fond est transparent */
+        border-bottom: none;
+        /* Supprime la bordure en bas si elle était définie ailleurs */
+    }
+
+    section.fourth .contTeam .card {
+        height: 250px;
+        width: 150px;
+    }
+}
+
+@media(max-width: 850px) {
+    .hero-slider {
+        height: 300px !important;
+    }
+}
+
+@media(max-width: 730px) {
+    .blog-slider__title {
+        font-size: 20px !important;
+        height: 80px;
+    }
+}
+
+@media (max-width: 560px) {
+    .hero-slider {
+        height: 225px !important;
+        width: 90% !important;
+    }
+
+}
+
+@media (max-width: 430px) {
+    section.fourth .contTeam .card {
+        height: 220px;
+        width: 120px;
+    }
+}
+
+nav a#CTA:hover{
+    color: #fff !important;
+    text-decoration: none !important;
 }

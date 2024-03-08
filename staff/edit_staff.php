@@ -75,6 +75,7 @@ if (isset($_POST['update'])) {
             background-color: #f0f0f0;
             margin: 0;
             padding: 20px;
+            padding-top: 50px;
         }
 
         h1 {
@@ -109,16 +110,12 @@ if (isset($_POST['update'])) {
         }
 
         button {
-            background-color: #0056b3;
+            background-color: #4CAF50;
             color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #004494;
         }
 
         img {
@@ -128,6 +125,7 @@ if (isset($_POST['update'])) {
 </head>
 
 <body>
+    <a href="../admin.html" style="position: absolute; top: 20px; left: 20px;"><img style="height: 40px;" src="../assets/Menu.png" alt=""></a>
     <h1>Modifier le membre du personnel</h1>
     <form action="edit_staff.php?id=<?= htmlspecialchars($idPersonel) ?>" method="post" enctype="multipart/form-data">
         <div>
@@ -142,7 +140,7 @@ if (isset($_POST['update'])) {
         </div>
         <div>
             <label for="photo">Photo actuelle :</label>
-            <img src="<?= htmlspecialchars($personnel['photo']) ?>" alt="Photo" style="width: 100px; height: auto;">
+            <img src="../<?= htmlspecialchars($personnel['photo']) ?>" alt="Photo" style="width: 100px; height: auto;">
             <input type="file" id="photo" name="photo">
         </div>
         <button type="submit" name="update">Mettre à jour</button>

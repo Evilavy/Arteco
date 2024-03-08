@@ -65,6 +65,7 @@
 </head>
 
 <body>
+    <a href="../admin.html" style="position: absolute; top: 20px; left: 20px;"><img style="height: 40px;" src="../assets/Menu.png" alt=""></a>
     <h1>Ajouter un nouveau membre du personnel</h1>
     <form action="save_staff.php" method="post" enctype="multipart/form-data">
         <div>
